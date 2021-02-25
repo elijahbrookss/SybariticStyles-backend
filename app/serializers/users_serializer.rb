@@ -1,4 +1,4 @@
-class UserSerializer
+class UsersSerializer
   def initialize(user_obj)
     @user = user_obj
   end
@@ -10,7 +10,17 @@ class UserSerializer
           except: [:updated_at, :created_at]
         },
         past_orders: {
-          include: [:merchandises]
+          include: {
+            merchandise: {except: [:updated_at, :created_at]}
+          },
+          except: [:created_at, :updated_at, :merchandise_id, :user_id]
+        },
+        comments: {
+          include: {
+            user: {except: [:updated_at, :created_at, :password]},
+            merchandise: {except: [:updated_at, :created_at]}
+          },
+          except: [:created_at, :updated_at, :user_id, :merchandise_id]
         }
       },
       except: [:password, :updated_at, :created_at]
