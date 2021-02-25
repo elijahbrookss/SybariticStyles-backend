@@ -1,4 +1,3 @@
 class Merchandise < ApplicationRecord
-  belongs_to :past_order
-  belongs_to :cart
+  has_many :comments
 end
