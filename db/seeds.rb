@@ -14,3 +14,5 @@ m3 = Merchandise.create(description: 'ANOTHER ITEM')
 Cart.create(user: elijah, merchandise_id: m1.id)
 Cart.create(user: elijah, merchandise_id: m2.id)
 Cart.create(user: elijah, merchandise_id: m3.id)
+
+PastOrder.create(user: elijah, merchandise_id: m1.id)
