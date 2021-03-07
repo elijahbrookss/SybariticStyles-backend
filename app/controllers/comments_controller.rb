@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comments_params)
     if comment.save
-      render json: comment
+      render json: CommentsSerializer(comment).serialize
     end
   end
 
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   def update
     if @comment
       @comment.update(comments_params)
-      render json: @comment
+      render json: CommentsSerializer(@comment).serialize
     end
   end
 
