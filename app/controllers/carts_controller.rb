@@ -3,7 +3,6 @@ class CartsController < ApplicationController
   def create
     cart = Cart.new(cart_params)
     if cart.save then
-      # render json: CartsSerializer.new(cart).serialize
       render json: cart
     end
   end
